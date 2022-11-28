@@ -74,3 +74,51 @@ int main()
 	}
 	return 0;	
 }
+
+
+
+
+
+
+
+
+
+
+3rd method
+#include<stdio.h>
+int main()
+{
+	
+	int r,c,i,j,n,sum=0;
+	int a[10][10];
+	printf("\n\tEnter the odd dimension of the matrix \n");
+	scanf("%d",&n);
+	
+	printf("the precalculated sum is %d",n*(n*n+1)/2);
+	r=1; c=(n+1)/2;
+	
+	for(i=1;j<n;i++)
+	{
+		a[r][c]=i;
+		r--;
+		c++;
+		
+		if(r<1 && c>n) {r=r+2; c--;}
+		else if(r<1) r=n;
+		else if(c>n) c=1;
+		else if(a[r][c]!=0){r=r+2; c--;}
+		
+	}
+	for(r=1;r<=n;r++)
+	{
+		printf("\n\t\t");
+		
+		for(c=1;c<=n;c++)
+		{
+			printf("%d",a[r][c]);
+			if(r==c) sum=sum+a[r][c];
+			
+		}
+	}
+	printf("\n\n\t\t the obtained magic is %d......",sum);
+}
